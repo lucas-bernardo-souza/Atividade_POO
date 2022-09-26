@@ -1,6 +1,7 @@
 package controlador;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -8,7 +9,6 @@ import classes.Aluno;
 import classes.AssistenteAdministrativo;
 import classes.Biblioteca;
 import classes.Emprestimo;
-import classes.Item;
 import classes.Livro;
 import classes.Notebook;
 import classes.Professor;
@@ -88,7 +88,7 @@ public class Controlador {
 		GregorianCalendar dataHoje = new GregorianCalendar();
 		GregorianCalendar dataEntrega = new GregorianCalendar();
 		int prazo = user.prazoDeEntrega();
-		dataEntrega.add(dataEntrega.DAY_OF_MONTH, prazo);
+		dataEntrega.add(Calendar.DAY_OF_MONTH, prazo);
 		emprestimo = new Emprestimo(ultimoCodEmprestimo, codigoUsuario, dataHoje, dataEntrega);
 		ultimoCodEmprestimo++;
 		biblioteca.cadastrarEmprestimo(emprestimo);
